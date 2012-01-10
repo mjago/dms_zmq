@@ -13,7 +13,7 @@ def zmq_serve():
     os.system("clear")
 
     print "Saving patch..."
-    outfile = open("../patch/patch.patch", "w")
+    outfile = open("patch/patch.patch", "w")
     outfile.write(message)
     print message + "\n\n"
     outfile.close()
@@ -21,9 +21,9 @@ def zmq_serve():
 
     # apply patch
     print "\nchecking commit..."
-    if not os.system("git apply --check < \"../patch/patch.patch\"\n"):
+    if not os.system("git apply --check < \"patch/patch.patch\"\n"):
         print "...checked\napplying commit...\n"
-        os.system("git am --committer-date-is-author-date < \"../patch/patch.patch\"\n")
+        os.system("git am --committer-date-is-author-date < \"patch/patch.patch\"\n")
     else:
         print "ERROR! Patch will not apply\n\n"
 
@@ -31,8 +31,8 @@ def zmq_serve():
     os.system("\n\n")
 
     # return head sha
-    os.system("git log | head -1 > ../patch/head_sha")
-    infile = open("../patch/head_sha","r")
+    os.system("git log | head -1 > patch/head_sha")
+    infile = open("patch/head_sha","r")
     head_sha = infile.readline().split(' ',2) [1]
     infile.close()
 
