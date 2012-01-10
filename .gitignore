@@ -1,0 +1,6 @@
+*.pyc
+patch/
+!patch/keep_alive
+\#*
+.#*
+.git

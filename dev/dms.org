@@ -1,0 +1,87 @@
+* Development Management System (DMS)
+** Tasks
+*** Setup DMS dev for emacs
+**** DONE Modify CT to unit test python
+*** Setup git command-line generation commands
+**** [8/8] gitInitCmd
+     CLOCK: [2011-12-17 Sat 10:39]--[2011-12-17 Sat 10:43] =>  0:04
+     CLOCK: [2011-12-17 Sat 09:56]--[2011-12-17 Sat 10:13] =>  0:17
+
+Initialise git repo for new project:
+
+ - [X] if project directory doesn't exist cause exception
+ - [X] if .git exists cause exception
+ - [X] if passed parameter empty string, cause exception
+ - [X] if passed parameter that isn't string, cause exception
+ - [X] check returns correct command
+ - [X] passed project base directory (where .git lives)
+ - [X] refactor to use gitCheckDirectoryString
+ - [X] refactor to use gitCheckHasRepo
+
+**** TODO [1/1] gitCheckHasRepo(dir)
+     CLOCK: [2011-12-17 Sat 10:21]--[2011-12-17 Sat 10:30] =>  0:09
+
+ - [X] Return True if git repo in dir (.git) 
+ - [X] Return False if not git repo in dir (.git) 
+
+**** TODO [3/3] gitCheckDirectoryString(dir)
+     CLOCK: [2011-12-17 Sat 10:33]--[2011-12-17 Sat 10:39] =>  0:06
+
+ - [X] Return True if string could be a directory
+ - [X] Return False if not passed string
+ - [X] Return False if passed empty string
+
+
+**** TODO [7/7] gitAddCmd
+     CLOCK: [2011-12-17 Sat 10:44]--[2011-12-17 Sat 11:24] =>  0:40
+
+ - [X] if project directory doesn't exist cause exception
+ - [X] if .git doesn't exist cause exception
+ - [X] if passed parameter empty string, cause exception
+ - [X] if passed parameter that isn't string, cause exception
+ - [X] cause exception if file_to_add doesn't exist
+ - [X] check returns correct command
+ - [X] passed project base directory (where .git lives) and file to add
+
+** Purpose
+** TODO write purpose
+** Setup main module
+#+begin_src emacs-lisp :results silent
+
+(setq ct-dev-file-name   "dms.org")                   ;; ct-dev-file-name   
+(setq ct-src-file-name       "dms.py")                ;; ct-src-file-name  
+(setq ct-test-file-name      "test_dms.py")           ;; ct-test-file-name 
+(setq ct-example-file-name   "dms.org")               ;; ct-example-file-name   
+(setq ct-project-dir   "~/.emacs.d/martyn/martyn/DMS/")  ;; ct-project-dir    
+;;(setq ct-project-dir   (expand-file-name              ;; ct-project-dir    
+;;        (concat "../" (file-name-directory                           
+;;         buffer-file-name))))                            
+(setq ct-src-dir      "lib/")                         ;; ct-src-dir      
+(setq ct-test-dir      "test/")                       ;; ct-test-dir   
+(setq ct-example-dir   "dev/")                        ;;ct-example-dir
+(setq ct-dev-dir   "dev/")                            ;;ct-dev-dir
+(setq ct-language      "python")                      ;; ct-language
+
+(message "Now Run `M-x ct-project'")
+
+#+end_src
+** Setup git module
+#+begin_src emacs-lisp :results silent
+
+(setq ct-dev-file-name   "dms.org")                   ;; ct-dev-file-name   
+(setq ct-src-file-name       "git.py")                ;; ct-src-file-name  
+(setq ct-test-file-name      "test_git.py")           ;; ct-test-file-name 
+(setq ct-example-file-name   "dms.org")               ;; ct-example-name   
+(setq ct-project-dir   "~/.emacs.d/martyn/martyn/DMS/")  ;; ct-project-dir    
+;;(setq ct-project-dir   (expand-file-name              ;; ct-project-dir    
+;;        (concat "../" (file-name-directory                           
+;;         buffer-file-name))))
+(setq ct-src-dir      "lib/")                         ;; ct-src-dir      
+(setq ct-test-dir      "test/")                       ;; ct-test-dir   
+(setq ct-example-dir   "dev/")                        ;;ct-example-dir
+(setq ct-dev-dir   "dev/")                            ;;ct-dev-dir
+(setq ct-language      "python")                      ;; ct-language
+
+(message "Now Run `M-x ct-project'")
+
+#+end_src
