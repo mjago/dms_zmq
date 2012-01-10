@@ -17,7 +17,7 @@ def hash_file(file_path):
 
 # main process
 
-self_hash = hash_file("server.py")
+self_hash = hash_file("lib/server.py")
 
 while not do_exit:
     print "Starting Server\n"
@@ -26,8 +26,8 @@ while not do_exit:
         server.zmq_serve()
 
     # if server has changed reload
-        if self_hash != hash_file("server.py"):
-            self_hash = hash_file("server.py")
+        if self_hash != hash_file("lib/server.py"):
+            self_hash = hash_file("lib/server.py")
             do_reload = True
     print "Stopping Server"
     time.sleep(0.2)
