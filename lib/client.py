@@ -8,6 +8,8 @@ context = zmq.Context()
 # open and read patch
 #infile = open(sys.argv[1],"r")
 infile = open("bundle/bundle.bundle","r")
+infile.close()
+os.remove("bundle/bundle.bundle")
 lines = infile.readlines()
 
 all_lines = ""
@@ -40,7 +42,6 @@ if head_sha == returned_sha:
     os.remove(sys.argv[1])
 else:
     print "ERROR! Repos out of sync"
-infile.close()
   #   print "Received reply "
  #       print ("message sent")
 
