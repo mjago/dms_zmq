@@ -35,6 +35,10 @@ print " sent >"
 returned_sha = socket.recv()
 print " < received " + str(returned_sha) + "\n"
 os.system("git log | head -1 > patch/head_sha")
+outfile = open("patch/remote_sha","w")
+outfile.write(returned_sha)
+outfile.close()
+
 infile = open("patch/head_sha","r")
 head_sha = infile.readline().split(' ',2) [1]
 infile.close()
