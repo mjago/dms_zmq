@@ -25,7 +25,10 @@ def commit_and_test()
     remote_sha = f.readline()
     puts "remote_sha is #{remote_sha}"
   end
-  File.delete("bundle/bundle.bundle")
+  begin
+    File.delete("bundle/bundle.bundle")
+  rescue
+  end
   system("git bundle create bundle/bundle.bundle master ")
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
 #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
