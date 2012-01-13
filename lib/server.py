@@ -13,19 +13,21 @@ def zmq_serve():
     os.system("clear")
 
     print "Saving patch..."
-    outfile = open("patch/patch.patch", "w")
-    outfile.write(message)
-    print message + "\n\n"
-    outfile.close()
-    print "...patch saved"
+#    outfile = open("patch/patch.patch", "w")
+#    outfile.write(message)
+#    print message + "\n\n"
+#    outfile.close()
+#    print "...patch saved"
 
     # apply patch
-    print "\nchecking commit..."
-    if not os.system("git apply --check < \"patch/patch.patch\"\n"):
-        print "...checked\napplying commit...\n"
-        os.system("git am --committer-date-is-author-date < \"patch/patch.patch\"\n")
-    else:
-        print "ERROR! Patch will not apply\n\n"
+#    print "\nchecking commit..."
+#    if not os.system("git apply --check < \"patch/patch.patch\"\n"):
+#        print "...checked\napplying commit...\n"
+#        os.system("git am --committer-date-is-author-date < \"patch/patch.patch\"\n")
+#    else:
+#        print "ERROR! Patch will not apply\n\n"
+
+    os.system("git pull bundle/bundle.bundle master")
 
     os.system("git log -1 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
     os.system("\n\n")
