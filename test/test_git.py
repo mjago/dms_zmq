@@ -145,4 +145,4 @@ if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestGit)
     for t in suite:
         unittest.TextTestRunner(verbosity=3).run(t)
-
+        break
