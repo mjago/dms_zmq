@@ -19,7 +19,8 @@ def commit_and_test()
 
   # commit changes to save repo
   system("git add . && git commit -m\"" + patch_name + "\"")
-#  system("git format-patch -3 -o" + patch_dir + " HEAD~1 ")
+  #  system("git format-patch -3 -o" + patch_dir + " HEAD~1 ")
+  remote_sha = ""
   File.open("patch/remote_sha","r") do |f|
     remote_sha = f.readline()
   end
