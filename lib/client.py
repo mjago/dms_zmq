@@ -9,6 +9,7 @@ context = zmq.Context()
 #infile = open(sys.argv[1],"r")
 infile = open("bundle/bundle.bundle","r")
 lines = infile.readlines()
+size = str(os.fstat(infile.fileno())[6])
 infile.close()
 os.remove("bundle/bundle.bundle")
 
@@ -16,7 +17,6 @@ all_lines = ""
 for ln in lines:
     all_lines = all_lines + ln
 
-size = str(os.fstat(infile.fileno())[6])
 
 #size  = str(len(infile))
 
