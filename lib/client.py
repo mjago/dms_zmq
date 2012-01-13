@@ -8,9 +8,9 @@ context = zmq.Context()
 # open and read patch
 #infile = open(sys.argv[1],"r")
 infile = open("bundle/bundle.bundle","r")
+lines = infile.readlines()
 infile.close()
 os.remove("bundle/bundle.bundle")
-lines = infile.readlines()
 
 all_lines = ""
 for ln in lines:
