@@ -30,7 +30,7 @@ def zmq_serve():
     os.system("git pull bundle/bundle.bundle master")
 #    os.system("git unbundle")
 
-    os.system("git log -1 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
+#    os.system("git log -1 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
     os.system("\n\n")
 
     # return head sha
