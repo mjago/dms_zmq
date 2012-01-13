@@ -7,6 +7,7 @@ context = zmq.Context()
 
 # open and read patch
 #infile = open(sys.argv[1],"r")
+
 infile = open("bundle/bundle.bundle","rb")
 incontents = infile.read()
 size = str(os.fstat(infile.fileno())[6])
