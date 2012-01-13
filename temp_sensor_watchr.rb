@@ -20,8 +20,8 @@ def commit_and_test()
   # commit changes to save repo
   system("git add . && git commit -m\"" + patch_name + "\"")
 #  system("git format-patch -3 -o" + patch_dir + " HEAD~1 ")
-  File.open("patch/remote_sha","r") do |d|
-    remote_sha = f.readline
+  File.open("patch/remote_sha","r") do |f|
+    remote_sha = f.readline()
   end
   system("git bundle create bundle/bundle.bundle HEAD ^#{remote_sha} master ")
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
