@@ -35,7 +35,7 @@ def zmq_serve():
 #    else:
 #           print "ERROR! Patch will not apply\n\n"
 
-#    os.system("git fetch bundle/bundle.bundle master")
+    os.system("git pull bdl master")
 #    os.system("git rebase master")
 #    os.system("git unbundle")
 
