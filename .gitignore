@@ -1,6 +1,8 @@
 *.pyc
 patch/
 !patch/keep_alive
+bundle/bundle.bundle
+!bundle/keep_alive
 \#*
 .#*
 .git
