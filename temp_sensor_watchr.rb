@@ -23,6 +23,7 @@ def commit_and_test()
   remote_sha = ""
   File.open("patch/remote_sha","r") do |f|
     remote_sha = f.readline()
+    puts "remote_sha is #{remote_sha}"
   end
   system("git bundle create bundle/bundle.bundle HEAD ^#{remote_sha} master ")
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
