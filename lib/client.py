@@ -38,7 +38,8 @@ head_sha = infile.readline().split(' ',2) [1]
 infile.close()
 if head_sha == returned_sha:
     print "Repos synced"
-#    os.remove(sys.argv[1])else:
+#    os.remove(sys.argv[1])
+else:
     print "ERROR! Repos out of sync"
   #   print "Received reply "
  #       print ("message sent")
