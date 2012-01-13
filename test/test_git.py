@@ -144,5 +144,5 @@ if __name__ == '__main__':
 #    unittest.main()
     suite = unittest.TestLoader().loadTestsFromTestCase(TestGit)
     for t in suite:
-        unittest.TextTestRunner(verbosity=3).run(t)
+        unittest.TextTestRunner(verbosity=5).run(t)
 
