@@ -20,7 +20,7 @@ def zmq_serve():
 #    print "...patch saved"
 
     print "Saving bundle..."
-    outfile = open("bundle/bundle.bundle", "w")
+    outfile = open("../bundle/bundle.bundle", "w")
     outfile.write(message)
 #    print message + "\n\n"
     outfile.close()
