@@ -33,7 +33,7 @@ def zmq_serve():
 #        print "...checked\napplying commit...\n"
 #        os.system("git am --committer-date-is-author-date < \"patch/patch.patch\"\n")
 #    else:
-#          print "ERROR! Patch will not apply\n\n"
+#           print "ERROR! Patch will not apply\n\n"
 
 #    os.system("git fetch bundle/bundle.bundle master")
 #    os.system("git rebase master")
