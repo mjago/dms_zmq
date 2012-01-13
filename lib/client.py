@@ -7,16 +7,11 @@ context = zmq.Context()
 
 # open and read patch
 #infile = open(sys.argv[1],"r")
-infile = open("bundle/bundle.bundle","r")
-lines = infile.readlines()
+infile = open("bundle/bundle.bundle","rb")
+incontents = infile.read()
 size = str(os.fstat(infile.fileno())[6])
 infile.close()
 os.remove("bundle/bundle.bundle")
-
-all_lines = ""
-for ln in lines:
-    all_lines = all_lines + ln
-
 
 #size  = str(len(infile))
 
@@ -29,7 +24,7 @@ socket.connect ("tcp://192.168.1.68:5555")
     #    socket.send ("This is request number " + str(t.timeit())+ str(t.timeit()))
 print "\nSending " + size + " bytes > Server at " + str(datetime.now())
 
-socket.send (all_lines)
+socket.send (incontents)
 print " sent >"
 #  Get the reply.
 returned_sha = socket.recv()
