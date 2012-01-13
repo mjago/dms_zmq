@@ -24,7 +24,7 @@ def zmq_serve():
     outfile.write(message)
 #    print message + "\n\n"
     outfile.close()
-    os.remove("bundle/bundle.bundle")
+#    os.remove("bundle/bundle.bundle")
     print "...patch saved"
 
     # apply patch
