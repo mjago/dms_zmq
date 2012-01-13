@@ -19,6 +19,13 @@ def zmq_serve():
 #    outfile.close()
 #    print "...patch saved"
 
+    print "Saving bundle..."
+    outfile = open("bundle/bundle.bundle", "w")
+    outfile.write(message)
+#    print message + "\n\n"
+    outfile.close()
+    print "...patch saved"
+
     # apply patch
 #    print "\nchecking commit..."
 #    if not os.system("git apply --check < \"patch/patch.patch\"\n"):
