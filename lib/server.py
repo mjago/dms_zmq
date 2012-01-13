@@ -21,7 +21,7 @@ def zmq_serve():
 
     print "Saving bundle..."
     try:
-    os.remove("bundle/bundle.bundle")
+        os.remove("bundle/bundle.bundle")
     except():
         pass
     outfile = open("bundle/bundle.bundle", "wb")
