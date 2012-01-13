@@ -36,7 +36,7 @@ def zmq_serve():
 #        print "ERROR! Patch will not apply\n\n"
 
     os.system("git fetch bundle/bundle.bundle master")
-    os.system("git rebase master")
+#    os.system("git rebase master")
 #    os.system("git unbundle")
 
 #    os.system("git log -1 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
