@@ -40,7 +40,6 @@ if head_sha == returned_sha:
     os.remove(sys.argv[1])
 else:
     print "ERROR! Repos out of sync"
-
 infile.close()
   #   print "Received reply "
  #       print ("message sent")
