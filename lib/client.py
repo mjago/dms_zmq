@@ -37,6 +37,7 @@ print " < received " + str(returned_sha) + "\n"
 os.system("git log | head -1 > patch/head_sha")
 infile = open("patch/head_sha","r")
 head_sha = infile.readline().split(' ',2) [1]
+infile.close()
 if head_sha == returned_sha:
     print "Repos synced"
     os.remove(sys.argv[1])
