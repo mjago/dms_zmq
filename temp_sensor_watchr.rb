@@ -21,9 +21,12 @@ def commit_and_test()
   system("git add . && git add -u && git commit -m\"" + patch_name + "\"")
   #  system("git format-patch -3 -o" + patch_dir + " HEAD~1 ")
   remote_sha = ""
-  File.open("patch/remote_sha","r") do |f|
-    remote_sha = f.readline()
-    puts "remote_sha is #{remote_sha}"
+  begin
+    File.open("patch/remote_sha","r") do |f|
+      remote_sha = f.readline()
+      puts "remote_sha is #{remote_sha}"
+    end
+  rescue
   end
   begin
     File.delete("bundle/bundle.bundle")
