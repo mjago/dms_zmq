@@ -35,10 +35,6 @@ def commit_and_test()
 <<<<<<< HEAD
 #  system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
   system("git bundle create bundle/bundle.bundle --all")
-=======
-  system("git bundle create  --all bundle/bundle.bundle")
-#  system("git bundle create  --all bundle/bundle.bundle master ^#{remote_sha}")
->>>>>>> 616b7d808c575215b99c3f5e47d12bbf0b9361d2
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
 #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
   system("python lib/client.py")
