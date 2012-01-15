@@ -32,7 +32,6 @@ def commit_and_test()
     File.delete("bundle/bundle.bundle")
   rescue
   end
-<<<<<<< HEAD
 #  system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
   system("git bundle create bundle/bundle.bundle --all")
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
