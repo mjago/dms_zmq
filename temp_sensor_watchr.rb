@@ -21,16 +21,24 @@ def commit_and_test()
   system("git add . && git add -u && git commit -m\"" + patch_name + "\"")
   #  system("git format-patch -3 -o" + patch_dir + " HEAD~1 ")
   remote_sha = ""
-  File.open("patch/remote_sha","r") do |f|
-    remote_sha = f.readline()
-    puts "remote_sha is #{remote_sha}"
+  begin
+    File.open("patch/remote_sha","r") do |f|
+      remote_sha = f.readline()
+      puts "remote_sha is #{remote_sha}"
+    end
+  rescue
   end
   begin
     File.delete("bundle/bundle.bundle")
   rescue
   end
+<<<<<<< HEAD
 #  system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
   system("git bundle create bundle/bundle.bundle --all")
+=======
+  system("git bundle create  --all bundle/bundle.bundle")
+#  system("git bundle create  --all bundle/bundle.bundle master ^#{remote_sha}")
+>>>>>>> 616b7d808c575215b99c3f5e47d12bbf0b9361d2
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
 #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
   system("python lib/client.py")
