@@ -17,7 +17,7 @@ infile.close()
 
 #  Socket to talk to server
 socket = context.socket(zmq.REQ)
-socket.connect ("tcp://192.168.1.68:5555")
+socket.connect ("tcp://192.168.1.66:5555")
 
 # iterate over lines and send to server
 #for line in lines:
