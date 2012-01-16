@@ -35,3 +35,5 @@ ssss
 
 <dd>
 </dd>
+case class 
+(arg: type) 
