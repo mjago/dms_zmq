@@ -33,7 +33,7 @@ def commit_and_test()
   rescue
   end
 #  system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
-  system("git bundle create bundle/bundle.bundle master ")
+  system("git bundle create bundle/bundle.bundle master ^HEAD~1")
 #  system("git bundle create bundle/bundle.bundle --all")
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
 #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
