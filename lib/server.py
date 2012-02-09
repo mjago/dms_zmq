@@ -3,7 +3,7 @@
 import zmq
 import os
 
-context = zmq.Context()
+context = zmq.Context(1)
 socket = context.socket(zmq.REP)
 
 socket.bind("tcp://*:5555")
