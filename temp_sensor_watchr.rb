@@ -42,3 +42,4 @@ def commit_and_test()
 #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
   system("python lib/client.py")
 end
+
