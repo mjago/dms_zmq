@@ -1,47 +1,58 @@
-
+# imports
 import zmq
 import os
 from datetime import datetime
 import sys
+
+# create context
+
 context = zmq.Context(1)
 
 # open and read patch
-#infile = open(sys.argv[1],"r")
 
 infile = open("bundle/bundle.bundle","rb")
 incontents = infile.read()
 size = str(os.fstat(infile.fileno())[6])
 infile.close()
 
-#  Socket to talk to server
+#  create socket to talk to server
+
 socket = context.socket(zmq.REQ)
 socket.connect ("tcp://192.168.1.66:5555")
 
-# iterate over lines and send to server
-#for line in lines:
-    #    socket.send ("This is request number " + str(t.timeit())+ str(t.timeit()))
-print "\nSending " + size + " bytes > Server at " + str(datetime.now())
+# Send bundle to server
 
+print "\nSending " + size + " bytes > Server at " + str(datetime.now())
 socket.send (incontents)
 print " sent >"
-#  Get the reply.
+
+#  Get reply.from server
+
 returned_sha = socket.recv()
 print " < received " + str(returned_sha) + "\n"
+
+# write to log to screen
+
 os.system("git log | head -1 > patch/head_sha")
+
+# write remote_sha to file
+
 outfile = open("patch/remote_sha","w")
 outfile.write(returned_sha)
 outfile.close()
 
+# read head sha from file
+
 infile = open("patch/head_sha","r")
 head_sha = infile.readline().split(' ',2) [1]
 infile.close()
+
+# verify local and remote shas are the same and report
+
 if head_sha == returned_sha:
     print "Repos synced Ok"
-#    os.remove(sys.argv[1])
 else:
     print "ERROR! Repos out of sync"
-  #   print "Received reply "
- #       print ("message sent")
 
 
 
