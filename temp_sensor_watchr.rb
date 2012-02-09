@@ -39,16 +39,29 @@ def commit_and_test()
   rescue
   end
 
+  # delete existing bundle
   
   begin
     File.delete("bundle/bundle.bundle")
   rescue
   end
+
+  # create latest bundle
+  
   system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
-#  system("git bundle create bundle/bundle.bundle master ^HEAD~1")
-#  system("git bundle create bundle/bundle.bundle --all")
+
+  #  system("git bundle create bundle/bundle.bundle master ^HEAD~1")
+  #  system("git bundle create bundle/bundle.bundle --all")
+
+  # log results to screen using git
+  
   system("git log -1  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative")
-#  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
+
+  #  system("python lib/client.py #{patch_dir}0001-#{patch_name}.patch")
+
+
+  # run lib/client.py to send bundle to tester
+  
   system("python lib/client.py")
 end
 
