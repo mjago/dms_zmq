@@ -3,7 +3,7 @@ import zmq
 import os
 from datetime import datetime
 import sys
-context = zmq.Context()
+context = zmq.Context(1)
 
 # open and read patch
 #infile = open(sys.argv[1],"r")
@@ -13,13 +13,9 @@ incontents = infile.read()
 size = str(os.fstat(infile.fileno())[6])
 infile.close()
 
-#size  = str(len(infile))
-
 #  Socket to talk to server
 socket = context.socket(zmq.REQ)
-socket.connect ("tcp://localhost:5555")
-# socket.connect ("tcp://192.168.1.66:5555")
-# socket.connect ("tcp://mj-server:5555")
+socket.connect ("tcp://192.168.1.66:5555")
 
 # iterate over lines and send to server
 #for line in lines:
