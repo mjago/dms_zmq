@@ -48,7 +48,7 @@ def commit_and_test()
 
   # create latest bundle
   
-  system("git bundle create bundle/bundle.bundle master ^#{remote_sha}")
+  system("git bundle create bundle/bundle.bundle saves ^#{remote_sha}")
 
   #  system("git bundle create bundle/bundle.bundle master ^HEAD~1")
   #  system("git bundle create bundle/bundle.bundle --all")
